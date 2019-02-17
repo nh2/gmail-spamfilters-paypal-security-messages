@@ -2,7 +2,7 @@
 
 Using Google GSuite for business and PayPal for business.
 
-I got this:
+After adding a new user to the account, I got this (the email was expected, but the fact that it's marked as Spam is not):
 
 ---
 
