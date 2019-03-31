@@ -35,3 +35,11 @@ A few hours after I posted this on [Hacker News](https://news.ycombinator.com/it
   * I am told that it's an issue on Google's side, and that they have rolled out a short-term fix specific to Paypal
 
 While the issue is annoying and I don't know what the state of a full solution to this type of problem on their side is, the response time, time-to-workaround, and general communication in this were impressive.
+
+## Update: Gmail spamfilters Stripe as well
+
+On 2019-03-31, the same happened to an equally legitimate security notification from Stripe, when I tried to log into my Stripe account.
+
+Gmail tells me that the only reason the email didn't go to Spam is because I disabled its Spam filter.
+
+![Screenshot showing Gmail classifying a Stripe security notification as Spam](gmail-stripe-spamfilter.png)
