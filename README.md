@@ -43,3 +43,5 @@ On 2019-03-31, the same happened to an equally legitimate security notification 
 Gmail tells me that the only reason the email didn't go to Spam is because I disabled its Spam filter.
 
 ![Screenshot showing Gmail classifying a Stripe security notification as Spam](gmail-stripe-spamfilter.png)
+
+You can see the sanitised email headers in [`stripe-headers.txt`](stripe-headers.txt) if you want to analyse them.

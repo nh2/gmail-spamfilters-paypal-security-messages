@@ -1,0 +1,157 @@
+Delivered-To: niklas@mydomain.com
+Received: by 2002:a17:906:3591:0:0:0:0 with SMTP id o17csp4349900ejb;
+        Sun, 31 Mar 2019 09:21:21 -0700 (PDT)
+X-Received: by 2002:a17:902:801:: with SMTP id 1mr27652527plk.299.1554049281422;
+        Sun, 31 Mar 2019 09:21:21 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1554049281; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=LTUheY240GCnnzOpD94rL2aYcSH1JYIbydMk6WU4D1ZLj7CgaGPInAej6hy0bULUOf
+         Os7FikO5Y94Y8i2zVUSEae9XZfaYgclFRcg01yUcSHfeKsgBszWJcOyE99zz8ZmCcOhX
+         KmKDQxbFF3wuCFp7FeXQUPdqYHZe3ZKLK+S2hhdhLBsCKG0tl78aXUC3YOmrXndYbYEh
+         86O6p/6Ubw+20aQQdR6BDNi2nDWkfYYHYWUatvWDAbfAqLsLHjFsLppcKOHjHbt2I2Je
+         2Q7bd2mcT/OpsYFFKWwHimuKFuhSYOFPPdGOaYkc75BKUpnmBkftMZYfq/+ZLkNPOHNh
+         E+7w==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:reply-to:feedback-id
+         :content-transfer-encoding:mime-version:subject:message-id:to:from
+         :date:dkim-signature;
+        bh=JEH4saRRMw3+IIgPWg5Db1CfVzLxH5wLX4iaRJmN7BU=;
+        b=AoyJaz7T+BcHucx7ui7MsM3Mzo4T/9VrWKd06aG6IaVs7u2nC3jLOi5AUkpJKPd7fF
+         ltrfZVe3oSAhGhRO9B4esRoE8zhO5PzJjKYg2fI0f8MqhseYSSMYJRCgPs2fVI7Pp+dw
+         xxk3akQOHgTGLBHAxAUB7Cl2SKY3Wn01+DtymagcsHd5QMs/EpxE8/+ztc/r73tZ/h5K
+         eYt47SUb4jzw4slz5LW5vlA1OZFtwcpjfxY/RoNvAy3/TXxm7J1usvwmVMx7069libAd
+         94icFLlN765HxNqLZb7EPe61N7RoRj1vZ/YYWfOo5BzZxXt6v95Hs6+sMT1EBfB5tJul
+         OCoA==
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@mydomain-com.20150623.gappssmtp.com header.s=20150623 header.b=zLDLay9B;
+       arc=pass (i=2 spf=pass spfdomain=bounce.stripe.com dkim=pass dkdomain=stripe.com dkim=pass dkdomain=amazonses.com dmarc=pass fromdomain=stripe.com);
+       spf=neutral (google.com: 209.85.220.69 is neither permitted nor denied by best guess record for domain of services+bncbdqmn3ht7udrbagsqpsqkgqesvvbfoy@mydomain.com) smtp.mailfrom=services+bncBDQMN3HT7UDRBAGSQPSQKGQESVVBFOY@mydomain.com
+Return-Path: <services+bncBDQMN3HT7UDRBAGSQPSQKGQESVVBFOY@mydomain.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id i10sor6264825pfd.33.2019.03.31.09.21.21
+        for <niklas@mydomain.com>
+        (Google Transport Security);
+        Sun, 31 Mar 2019 09:21:21 -0700 (PDT)
+Received-SPF: neutral (google.com: 209.85.220.69 is neither permitted nor denied by best guess record for domain of services+bncbdqmn3ht7udrbagsqpsqkgqesvvbfoy@mydomain.com) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mydomain-com.20150623.gappssmtp.com header.s=20150623 header.b=zLDLay9B;
+       arc=pass (i=2 spf=pass spfdomain=bounce.stripe.com dkim=pass dkdomain=stripe.com dkim=pass dkdomain=amazonses.com dmarc=pass fromdomain=stripe.com);
+       spf=neutral (google.com: 209.85.220.69 is neither permitted nor denied by best guess record for domain of services+bncbdqmn3ht7udrbagsqpsqkgqesvvbfoy@mydomain.com) smtp.mailfrom=services+bncBDQMN3HT7UDRBAGSQPSQKGQESVVBFOY@mydomain.com
+ARC-Seal: i=2; a=rsa-sha256; t=1554049281; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=yNkJNbxjv1A6MAh/IbBauYarKcfq2Fw5Z5b04x9SCAYjuJ0WpqIOJsjVT3gMK8eIcV
+         Czxib2IY/P0viL9/F4hhGx/qWWMzm4Nnvwbu8+tl0jSmhfG9kSi8iu3RUBfkrFT3sqTI
+         lPSmUslwdvGkOAVpUpjwbLZO7GVCTdwEwg66uv0HgF1jPqQR9ufJ+J/1fA8SjFXsejnc
+         1XWbK8CJb2nospOsr9vu45gEnM4Sc1348KGzruD5IUz4dfpR5YHuo1Xp9HKREgopee29
+         y+CGEcKTNu8iJO2ZU+5xzx5t8AnBMGseJlKN5y5/+Tg/H1N6vgq+2v6sFVSXVTyM2El3
+         7Q1w==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:reply-to:feedback-id
+         :content-transfer-encoding:mime-version:subject:message-id:to:from
+         :date:dkim-signature;
+        bh=JEH4saRRMw3+IIgPWg5Db1CfVzLxH5wLX4iaRJmN7BU=;
+        b=etTjx5LdKc46wuXxcKsWKkRcqHfe0qoVQif68ek84YX7NaGMFZF5wKgnTn9Qw6FtHt
+         KCbWCdYLi/l+o7A3aN5RYi6Fn3IetD/5VzcwNPj24i7xByv9ukcmy2xw8l00CnIN+Anp
+         Q0TTavrgeYAC7sY2Lvy3lhjDhZySQv7+STYVckqJM/thcU/iMyWjYGv3CBLZoGiHMAY4
+         h8ttGcBIqcGWYkXgJnC/4yHnd+Ra/YWeS0T1SRVh6QVSGnL6xbA9uzxt5sTD5mexSziL
+         5Tjy2zjbaPn6az78bZ70UoM7ZDaXzHBeZ6W0yERDm3RNILao8IJMSHYDW0RKW0aAH+y8
+         UfOg==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@stripe.com header.s=dqcliwr4mswnxa6jg7ggxrsirzjczj3t header.b=WYZrSFDk;
+       dkim=pass header.i=@amazonses.com header.s=gdwg2y3kokkkj5a55z2ilkup5wp5hhxx header.b=Co33kM5z;
+       spf=pass (google.com: domain of 0101010101010101-abababab-1234-abab-1234-abababababab-000000@bounce.stripe.com designates 54.240.62.28 as permitted sender) smtp.mailfrom=0101010101010101-abababab-1234-abab-1234-abababababab-000000@bounce.stripe.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=stripe.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=mydomain-com.20150623.gappssmtp.com; s=20150623;
+        h=date:from:to:message-id:subject:mime-version
+         :content-transfer-encoding:feedback-id:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-unsubscribe;
+        bh=JEH4saRRMw3+IIgPWg5Db1CfVzLxH5wLX4iaRJmN7BU=;
+        b=zLDLay9B132O7jbu0MGzEFgScYe8wmTOsr9o0hZWTeMSuTQUyG8dwSr/dRxkpI6VtF
+         kuxfXhIjR/UYWkEIn5FbQKMVgiS4R9tLr6AIAooJO9zENptrcQ79/KRF+8djA5SgyhuE
+         BISDjrydwEcsSnJumZN4Ub0pC7fYUKhfJLm4/qEC1p2FA6xkpUI1gLJe6CaKtPH6Tv3m
+         ma8Azx9hjLrlj+R+wyWI5hDik2KsoNI991oBHax0FNY2XyXEOc9JrToXNmo+Yk/FmI5J
+         kKbhV3Q6laYS+SKsB6EuESL1xZVrEZkk9XirhktPpUILQ3nyV/mJfyoGYbHCimSpXIJi
+         yIbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:date:from:to:message-id:subject:mime-version
+         :content-transfer-encoding:feedback-id:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-unsubscribe;
+        bh=JEH4saRRMw3+IIgPWg5Db1CfVzLxH5wLX4iaRJmN7BU=;
+        b=VV8gSyPZ+Om8p7fo5BJTnX3RINUuk2b0cdbwOtdmdlJ9gGq7iFBpGgYHrI6CzyfbHb
+         cguILPZL9Zm1HXtDjAXHHZIID5u1zweDKgc0RK+bSmQdHqV81BCTKh0gFFDDdLa6iydV
+         Yl+v8to+R2/6CZXc8f/6ZD98nAcSGHB6w14ncKlWn+Joy/pAKdom0uwFsoIhnKcY3a/f
+         5wplg78nL9L5Ns171yyYCa9Iyoadtb5gtuQKlRmZpMntuF0NgoXjru3/VfkV3xwcI3a6
+         tOISLURrz5qhIpKLKdvJyjmxHzYg/n8jPmMFbgVWo8pIlL5nCmXjVaVQjF0PPu5DvYC6
+         qKUg==
+X-Gm-Message-State: APjAAAUt8d+dfgUFAG+A98jLScle9aOh4wCicfR093dbnUxvpG0QS9sH /CRErzApEgyuQaj6eofniO/E
+X-Google-Smtp-Source: APXvYqym8gvBuLnMOe49oBrHQ0cQSXmVEXoZB6zOtMIDc4yoAIMR3ayp/79ibzUeP3LAn2gDQuAE7g==
+X-Received: by 2002:aa7:83d6:: with SMTP id j22mr982068pfn.104.1554049280871;
+        Sun, 31 Mar 2019 09:21:20 -0700 (PDT)
+X-BeenThere: services@mydomain.com
+Received: by 2002:aa7:8085:: with SMTP id v5ls2990554pff.5.gmail; Sun, 31 Mar 2019 09:21:20 -0700 (PDT)
+X-Received: by 2002:a63:be02:: with SMTP id l2mr34489446pgf.48.1554049280516;
+        Sun, 31 Mar 2019 09:21:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1554049280; cv=none;
+        d=google.com; s=arc-20160816;
+        b=R7I/HikAOkOIdAGccAHI1JONQ2vS3Yz72c3FS+/2B1KZXFpBrJQKkXI5RYGwGEo80R
+         SZsBnFu3k8LxSOKkTmestWy7QNInsmG33DAekyUof7vaqpPqN9eLlAtIobtGwibL1dS2
+         70QSZzkpKb1PBVEQUauUTwr4OtJ3FHTki6dTcgnqjIELDlyNu1yWtsNJ/zwdvEAkIujI
+         hQjnJuxmY4j5R6EZW37OrqgYuD9lyJ7s29uOdW+ghDWn9bYS1jYCV2fEePeA9z3PfPYD
+         vShhk0vgPRLHM9XarxlmjF/CzwEOMMcEFnYitOWMQ9/8grN1bo22pybmCzkNuRBT8CWK
+         HCCQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:content-transfer-encoding:mime-version:subject
+         :message-id:to:from:date:dkim-signature:dkim-signature;
+        bh=JEH4saRRMw3+IIgPWg5Db1CfVzLxH5wLX4iaRJmN7BU=;
+        b=x5nMjY7QfV7p9e2yKdGPXRpOpGposmm6omS9ckBTLtR82c6iHduMl01MHEM2XWd48j
+         4/AYFf72rs5uMIS9IQ0ZRWNAvHcDFUlvJNx6S74cU4q6nGRyJws8UornELz/iVvvrpoK
+         UKe0mO0fRVaRe3JqQinPVfln9o0pw9ZN9t5vv7gWeQth/u4JzbFYs23yGvZhmsROZS6j
+         zB1/+IDpsn9lcNw2Q7nLNGB0x89RUY0Y4J3eJ4Q7h//LC0J0EGJ7IRy8OdCGR9sDcQfx
+         ew2dF927FnyYgvFPGOusyLGmL57FzXp3MTWJFrMVE8M881UpLeDrlbaY19ly0IIGIB+m
+         2XTw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@stripe.com header.s=dqcliwr4mswnxa6jg7ggxrsirzjczj3t header.b=WYZrSFDk;
+       dkim=pass header.i=@amazonses.com header.s=gdwg2y3kokkkj5a55z2ilkup5wp5hhxx header.b=Co33kM5z;
+       spf=pass (google.com: domain of 0101010101010101-abababab-1234-abab-1234-abababababab-000000@bounce.stripe.com designates 54.240.62.28 as permitted sender) smtp.mailfrom=0101010101010101-abababab-1234-abab-1234-abababababab-000000@bounce.stripe.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=stripe.com
+Received: from a62-28.smtp-out.us-west-2.amazonses.com (a62-28.smtp-out.us-west-2.amazonses.com. [54.240.62.28])
+        by mx.google.com with ESMTPS id b38si7192246plb.249.2019.03.31.09.21.20
+        for <services+stripe@mydomain.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Sun, 31 Mar 2019 09:21:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 0101010101010101-abababab-1234-abab-1234-abababababab-000000@bounce.stripe.com designates 54.240.62.28 as permitted sender) client-ip=54.240.62.28;
+Date: Sun, 31 Mar 2019 16:21:20 +0000
+From: "'Stripe' via Services" <services@mydomain.com>
+To: services+stripe@mydomain.com
+Message-ID: <0101010101010101-abababab-1234-abab-1234-abababababab-000000@us-west-2.amazonses.com>
+Subject: Confirm your login
+Mime-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Stripe-EID: em_i8hdgig2cc9ohwox0emr2dfvx83f9o
+X-SES-Outgoing: 2019.03.31-54.240.62.28
+Feedback-ID: 1.us-west-2.U9efwdPDLNZNk/S34uMIpcrlbDF6b3rs/s41tFWSWJ8=:AmazonSES
+X-Original-Sender: support@stripe.com
+X-Original-Authentication-Results: mx.google.com;
+       dkim=pass header.i=@stripe.com header.s=dqcliwr4mswnxa6jg7ggxrsirzjczj3t header.b=WYZrSFDk;
+       dkim=pass header.i=@amazonses.com header.s=gdwg2y3kokkkj5a55z2ilkup5wp5hhxx header.b=Co33kM5z;
+       spf=pass (google.com: domain of 0101010101010101-abababab-1234-abab-1234-abababababab-000000@bounce.stripe.com designates 54.240.62.28 as permitted sender) smtp.mailfrom=0101010101010101-abababab-1234-abab-1234-abababababab-000000@bounce.stripe.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=stripe.com
+X-Original-From: Stripe <support@stripe.com>
+Reply-To: Stripe <support@stripe.com>
+Precedence: list
+Mailing-list: list services@mydomain.com; contact services+owners@mydomain.com
+List-ID: <services.mydomain.com>
+X-Spam-Checked-In-Group: services@mydomain.com
+X-Google-Group-Id: 12345678912
+List-Post: <https://groups.google.com/a/mydomain.com/group/services/post>, <mailto:services@mydomain.com>
+List-Help: <https://support.google.com/a/mydomain.com/bin/topic.py?topic=25838>, <mailto:services+help@mydomain.com>
+List-Archive: <https://groups.google.com/a/mydomain.com/group/services/>
+List-Unsubscribe: <mailto:googlegroups-manage+12345678912+unsubscribe@googlegroups.com>, <https://groups.google.com/a/mydomain.com/group/services/subscribe>
